@@ -14,8 +14,8 @@ const Timer = () => {
 
     const getThemeFromUrl = (mode) => {
         if(mode === "break") return "#4fb9d3"
-        else if(mode === "longbreak") return "blue"
-        else return "red";
+        else if(mode === "longbreak") return "green"
+        else return "rgb(212, 64, 64)";
 
     }
     //styles:
@@ -28,12 +28,18 @@ const Timer = () => {
         
     `
     const TimerBody = styled.div`
+        transition: all .5s;
+
         background-color: white;
         color: ${props => props.theme};
-        width: 300px;
-        height: 300px;
-
-          
+        width: 95vw;
+        height: 95vh;
+        border: 10px solid ${props => props.theme};
+        border-radius: 20px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
     `
 
 

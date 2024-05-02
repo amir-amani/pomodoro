@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Counter.module.css';
 
@@ -22,19 +22,40 @@ const Counter = ({mode}) => {
         start([time.min , time.sec] , setTime)
     }
 
+    const navigate = useNavigate();
+    const handleModeClick = (event) => {
+        const mode = event.target.innerText;
+        switch (mode) {
+            case "Work":
+                navigate("/mode");
+                break;
+            case "Long Break":
+                navigate("/longbreak");
+                break;
+            case "Break":
+                navigate("/break");
+                break;
+            default:
+                navigate("/work");
+                break;
+        }
+    }
+
 
     return (
         <div className={styles.container}>
-            <p>{fixTime(time.min)}:{fixTime(time.sec)}</p>
+            <p className={styles.timerContainer}>{fixTime(time.min)}:{fixTime(time.sec)}</p>
             <div className={styles.buttonContainer}>
-                <div onClick={startTimer}>Start</div>
                 <div onClick={pause}>Pause</div>
+                <div onClick={startTimer}>Start</div>
                 <div onClick={setTimer}>Reset</div>
             </div>
-            <div className={styles.modeChangeContainer}>
-                <div><Link to={'/work'}>Work</Link></div>
-                <div><Link to={'/break'}>Break</Link></div>
-                <div><Link to={'/longbreak'}>Long Break</Link></div>
+
+            {/*i didnt use <Link/> because its a pain in the ass to style it*/}
+            <div className={styles.modeChangeContainer} onClick={(event) => handleModeClick(event)}>
+                <div className={styles.modeButton}>Break</div>
+                <div className={styles.modeButton}>Long Break</div>
+                <div className={styles.modeButton}>Work</div>
             </div>
         </div>
     );

@@ -1,21 +1,73 @@
 .container {
-    width: 100%;
-    height: 100%;
-    background-color: gray;
+    width: 40%;
+    height: 40%;
+
+    border: 4px solid;
+    border-radius: 20px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;   
+}
+
+.timerContainer {
+    font-size: 4rem;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
 }
 
 .buttonContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 60%;
 }
 
 .buttonContainer div {
     cursor: pointer;
+    border: 1px solid;
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+    transition: all .3s;
+}
+.buttonContainer div:hover {
+    color: lightgray;
+    /* padding: 3px; */
+}
+
+
+
+.modeChangeContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.modeButton {
+    cursor: pointer;
+    color: gray;
+    transition: all .5s;
+}
+.modeButton:hover {
+    color: lightgray;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        height: 90%;
+    }
+    .buttonContainer {
+        width: 70%;
+        flex-direction: column;
+    }
+    .buttonContainer div {
+        width: 180px;
+        margin: 10px;
+        padding: 10px;
+    }
 }
