@@ -2,7 +2,7 @@
 // but it looks cleaner this way and im way too lazy to change it
 
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Counter from './Counter';
@@ -16,6 +16,7 @@ const Timer = () => {
         if(mode === "break") return "#4fb9d3"
         else if(mode === "longbreak") return "blue"
         else return "red";
+
     }
     //styles:
     const Container = styled.div`
@@ -36,8 +37,10 @@ const Timer = () => {
     `
 
 
+    const navigate = useNavigate();
     useEffect(() => {
-        setMode(() => name);
+        if(name === "work" || name === "break" || name === "longbreak") setMode(() => name);
+        else navigate("/work")
     }, [name])
 
     return (

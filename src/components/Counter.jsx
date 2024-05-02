@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Counter.module.css';
 
@@ -30,6 +30,11 @@ const Counter = ({mode}) => {
                 <div onClick={startTimer}>Start</div>
                 <div onClick={pause}>Pause</div>
                 <div onClick={setTimer}>Reset</div>
+            </div>
+            <div className={styles.modeChangeContainer}>
+                <div><Link to={'/work'}>Work</Link></div>
+                <div><Link to={'/break'}>Break</Link></div>
+                <div><Link to={'/longbreak'}>Long Break</Link></div>
             </div>
         </div>
     );

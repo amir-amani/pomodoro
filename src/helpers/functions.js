@@ -1,7 +1,9 @@
 let intervalId;
 
 function getTime(mode) {
+    //to stop the timer from contenueing after reset is clicked
     clearInterval(intervalId);
+
     if(mode === "break") return {
         min: 5,
         sec: 0
@@ -23,6 +25,9 @@ function fixTime(time) {
 
 
 function start([minutes , seconds], setTimeCallback) {
+    // to stop multiple clicks interrupt pause and reset
+    clearInterval(intervalId)
+
     let min = minutes;
     let sec = seconds;
 

@@ -18,9 +18,10 @@ const Div = styled.div`
 function App() {
   return (
     <Routes>
-      <Route path="/" >
-        <Route path=":name" element={<Timer />} />
-      </Route>
+      {/* <Route path="/"> */}
+        <Route path="/:name" element={<Timer />} />
+        <Route path="*" element={<Navigate to={"/work"} replace />}/>
+      {/* </Route> */}
     </Routes>    
   )
 }
