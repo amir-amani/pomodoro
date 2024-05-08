@@ -7,7 +7,7 @@ import styles from './Counter.module.css';
 // helper functions:
 import { fixTime, getTime, start, pause } from '../helpers/functions';
 
-const Counter = ({mode}) => {
+const Counter = ({mode, setMode}) => {
     const [time, setTime] = useState({min: 0, sec:0})
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Counter = ({mode}) => {
         setTime(getTime(mode))
     }
     const startTimer = () => {
-        start([time.min , time.sec] , setTime)
+        start([time.min , time.sec] , setTime, {mode , setMode})
     }
 
     const navigate = useNavigate();

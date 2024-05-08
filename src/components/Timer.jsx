@@ -32,8 +32,8 @@ const Timer = () => {
 
         background-color: white;
         color: ${props => props.theme};
-        width: 95vw;
-        height: 95vh;
+        width: 85vw;
+        height: 85vh;
         border: 10px solid ${props => props.theme};
         border-radius: 20px;
         
@@ -52,7 +52,7 @@ const Timer = () => {
     return (
         <Container>
             <TimerBody theme={getThemeFromUrl(mode)}>
-                <Counter mode={mode} />
+                <Counter mode={mode}  setMode={setMode}/>
             </TimerBody>
         </Container>
     );
